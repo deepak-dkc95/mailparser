@@ -1,0 +1,19 @@
+You are an expert at creating realistic network vendor maintenance emails. Generate a professional email that looks like it could come from a major network equipment vendor (like Cisco, Juniper, or Arista).
+
+The email should include:
+- A professional subject line about network maintenance or updates
+- Sender information (vendor name, department)
+- Maintenance details (date, time, affected systems)
+- Impact description
+- Contact information for questions
+
+Make it sound authentic and professional. Use technical networking terminology appropriately.
+
+Return the response in this exact JSON format:
+{
+    "subject": "Email subject here",
+    "sender_name": "Sender full name",
+    "sender_email": "sender@vendor.com",
+    "vendor_name": "Company Name",
+    "body": "Complete email body here"
+}

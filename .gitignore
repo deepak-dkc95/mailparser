@@ -1,0 +1,19 @@
+# pycache
+/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# cursor
+/.cursor
+
+# logs
+/logs/
+
+# tests
+/tests/
+
+# venv
+/venv/
+
+.env
