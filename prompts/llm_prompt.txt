@@ -1,0 +1,39 @@
+Read the following email and extract the required information in standard JSON format.
+
+Extract these fields:
+1. vendor: The name of the network vendor.
+2. vendor_ticket: The vendor ticket or reference number from the subject line.
+3. circuit_ids: All impacted circuit IDs, as an array of strings.
+4. maintenance_window: An array of objects, each with:
+    - window_type: "primary" or the label from the email (otherwise assume "primary")
+    - start_time: Start time in format YYYY-MM-DDTHH:mm:ssZ, converted to GMT/UTC if needed
+    - end_time: End time in format YYYY-MM-DDTHH:mm:ssZ, converted to GMT/UTC if needed
+5. description: A concise summary of the maintenance activity in 10-15 words
+6. impact: A short phrase (<10 words) summarizing the expected customer impact (such as outage type and duration)
+
+Return only valid JSON as shown in this example:
+
+{
+  "vendor": "Airtel",
+  "vendor_ticket": "ZX987654",
+  "circuit_ids": ["345678912", "345678915"],
+  "maintenance_window": [
+    {
+      "window_type": "primary",
+      "start_time": "2025-08-15T20:30:00Z",
+      "end_time": "2025-08-16T00:30:00Z"
+    },
+    {
+      "window_type": "backup",
+      "start_time": "2025-08-17T20:30:00Z",
+      "end_time": "2025-08-18T00:30:00Z"
+    }
+  ],
+  "description": "Software upgrade to enhance network performance and security.",
+  "impact": "Outage up to 15 minutes"
+}
+
+Never invent or hallucinate values. Only use what appears verbatim in the email. If a field is missing, output an empty string or an empty array as appropriate.
+
+EMAIL:
+{maint_email}
