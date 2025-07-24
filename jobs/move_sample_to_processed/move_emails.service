@@ -3,5 +3,5 @@ Description=Move sample .eml files to processed_emails directory for mailparser
 
 [Service]
 Type=oneshot
-WorkingDirectory=/home/deepak/projects/mailparser/jobs/move_sample_to_processed
-ExecStart=/usr/bin/python3 /home/deepak/projects/mailparser/jobs/move_sample_to_processed/move_emails.py
+WorkingDirectory=/projects/mailparser/jobs/move_sample_to_processed
+ExecStart=/usr/bin/python3 /projects/mailparser/jobs/move_sample_to_processed/move_emails.py

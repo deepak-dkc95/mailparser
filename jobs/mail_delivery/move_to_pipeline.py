@@ -2,17 +2,17 @@ import subprocess
 import time
 from pathlib import Path
 import shutil
-from jobs.jobs_config import SRC_PROCESSED, DEST_OK, DEST_FAIL, PROCM_EMAIL_RC
+from jobs.jobs_config import SRC_PROCESSED, DEST_OK, DEST_FAIL, PROCMAILRC
 
 def process_eml(eml_path):
     with eml_path.open("rb") as f:
         try:
             result = subprocess.run(
-                ["procmail", str(PROCM_EMAIL_RC)],
+                ["procmail", str(PROCMAILRC)],
                 stdin=f,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                timeout=60
+                timeout=90
             )
             if result.returncode == 0:
                 print(f"PROCM SUCCESS: {eml_path.name}")
