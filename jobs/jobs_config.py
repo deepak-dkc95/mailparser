@@ -1,6 +1,11 @@
 from pathlib import Path
 
-# Set the paths (use absolute paths for reliability in systemd jobs)
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SRC = PROJECT_ROOT / "emails" / "sample_eml"
-DST = PROJECT_ROOT / "emails" / "processed_emails"
+EMAILS_DIR = PROJECT_ROOT / "emails"
+
+SRC_SAMPLE = EMAILS_DIR / "sample_eml"
+SRC_PROCESSED = EMAILS_DIR / "processed_emails"
+DEST_OK = EMAILS_DIR / "procmail_sent"
+DEST_FAIL = EMAILS_DIR / "failed_emails"
+
+PROCM_EMAIL_RC = PROJECT_ROOT / ".procmailrc"

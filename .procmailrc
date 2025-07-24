@@ -1,0 +1,13 @@
+# Enable verbose logging (for troubleshooting)
+VERBOSE=yes
+
+# Central log for all procmail actions
+LOGFILE=/var/log/procmail.log
+
+# Prevent simultaneous execution on the same message
+LOCKFILE=/home/deepak/projects/mailparser/procmail.lock
+
+# For emails addressed to noc@customer.com, pipe to main.py
+:0
+* ^To:.*noc@customer\.com
+| /usr/bin/python3 /home/deepak/projects/mailparser/main.py
