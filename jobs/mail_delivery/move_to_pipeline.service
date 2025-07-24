@@ -4,4 +4,4 @@ Description=Deliver processed_emails to procmail/main.py pipeline (1 every 3min)
 [Service]
 Type=oneshot
 WorkingDirectory=/projects/mailparser/jobs/mail_delivery
-ExecStart=/usr/bin/python3 /projects/mailparser/jobs/mail_delivery/move_to_pipeline.py
+ExecStart=/projects/mailparser/jobs/mail_delivery/move_to_pipeline.py

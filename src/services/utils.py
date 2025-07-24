@@ -1,6 +1,7 @@
 import logging
-from src.config import LOG_FILE
-
+from src.config import (
+    LOG_FILE, IMPORTANT_KEYWORDS, CANCELLATION_KEYWORDS
+)
 
 def setup_logger(name="Network-MailParser"):
     log_dir = LOG_FILE.parent
@@ -27,3 +28,15 @@ logger = setup_logger()
 def load_file(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
+
+def is_important(subject):
+    """Check if subject contains any important keywords."""
+    return any(keyword.lower() in subject.lower() for keyword in IMPORTANT_KEYWORDS)
+
+def is_maintenance(subject):
+    """Check if subject contains 'maintenance' keyword."""
+    return "maintenance" in subject.lower()
+
+def check_cancelled(subject):
+    """Check if subject contains any cancellation keywords."""
+    return any(keyword.lower() in subject.lower() for keyword in CANCELLATION_KEYWORDS)

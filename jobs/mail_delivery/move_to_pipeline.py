@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+
+# Ensure project root is in sys.path for jobs.* imports
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import subprocess
 import time
-from pathlib import Path
 import shutil
 from jobs.jobs_config import SRC_PROCESSED, DEST_OK, DEST_FAIL, PROCMAILRC
 
