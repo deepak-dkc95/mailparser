@@ -5,4 +5,4 @@ LOCKFILE=/projects/mailparser/procmail/procmail.lock
 # For emails addressed to noc@customer.com, pipe to main.py
 :0
 * ^To:.*noc@customer\.com
-| /projects/mailparser/main.py
+| /projects/mailparser/run_main.sh

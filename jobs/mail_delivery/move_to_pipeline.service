@@ -2,6 +2,9 @@
 Description=Deliver processed_emails to procmail/main.py pipeline (1 every 3min)
 
 [Service]
-Type=oneshot
+User=deepak
+Group=deepak
 WorkingDirectory=/projects/mailparser/jobs/mail_delivery
 ExecStart=/projects/mailparser/jobs/mail_delivery/move_to_pipeline.py
+TimeoutSec=10min
+KillSignal=SIGINT
